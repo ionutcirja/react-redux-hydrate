@@ -8,7 +8,7 @@ type Actions = {
   [key: string]: Function,
 };
 
-type CProps = {
+type ComponentProps = {
   [key: string]: any,
 };
 
@@ -27,7 +27,7 @@ const extractAction = (name: string, actions: Actions) => {
   );
 };
 
-const extractParam = (name: string, props: CProps) => {
+const extractParam = (name: string, props: ComponentProps) => {
   const paramNameSplit = name.split('.');
   const paramValue = paramNameSplit.reduce(
     (acc: CProps, curr: string) => acc[curr],
@@ -39,7 +39,7 @@ const extractParam = (name: string, props: CProps) => {
   };
 };
 
-const extractParams = (params: Params, props: CProps) => {
+const extractParams = (params: Params, props: ComponentProps) => {
   if (Array.isArray(params)) {
     return params.reduce(
       (acc: CProps, curr: string) => (
