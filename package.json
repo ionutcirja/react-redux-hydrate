@@ -10,7 +10,7 @@
   },
   "scripts": {
     "build": "babel -d lib/ src/ --ignore *.spec.js",
-    "prepublish": "npm run lint && npm test && npm run build",
+    "prepublish": "npm run lint && npm run flow && npm test && npm run build",
     "lint": "eslint src/**",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -66,6 +66,7 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
+    "flow-bin": "^0.83.0",
     "jest": "^23.6.0",
     "pre-commit": "^1.2.2"
   }
