@@ -115,7 +115,7 @@ describe('hydrate hoc', () => {
       });
     });
     
-    it('should throw an error if action is not defined', () => {
+    it('should render an error if action is not defined', () => {
       const HOCComponent = hydrate({
         WrappedComponent: Component,
         Spinner,
@@ -124,7 +124,10 @@ describe('hydrate hoc', () => {
           'undefinedAction',
         ],
       });
-      expect(() => shallow(<HOCComponent {...propsToRender} />)).toThrow();
+      const wrapper = shallow(<HOCComponent {...propsToRender} />);
+      expect(wrapper.find('p').text()).toEqual(
+        'undefinedAction is not an action. Check your container mapDispatchToProps configuration.',
+      );
     });
   });
 });
