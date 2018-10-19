@@ -1,0 +1,61 @@
+{
+  "name": "react-redux-hydrate",
+  "version": "1.0.0",
+  "author": "Ionut Cirja",
+  "url": "https://github.com/ionutcirja/react-redux-hydrate",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ionutcirja/react-redux-hydrate"
+  },
+  "scripts": {
+    "build": "babel -d lib/ src/ --ignore *.spec.js",
+    "prepublish": "npm run lint && npm test && npm run build",
+    "lint": "eslint src/**",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:watchAll": "jest --watchAll",
+    "flow": "flow"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "./config/enzyme-setup.js",
+    "verbose": true,
+    "collectCoverage": true,
+    "testURL": "http://localhost/",
+    "collectCoverageFrom": [
+      "**/*.{js}",
+      "!**/node_modules/**",
+      "!**/config/**",
+      "!**/coverage/**"
+    ],
+    "testMatch": [
+      "**/__tests__/?(*.)(spec|test).js"
+    ]
+  },
+  "pre-commit": [
+    "lint",
+    "test"
+  ],
+  "dependencies": {
+    "react": "^16.5.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/preset-flow": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
+    "eslint": "^5.7.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-flowtype": "^3.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "jest": "^23.6.0",
+    "pre-commit": "^1.2.2"
+  }
+}
