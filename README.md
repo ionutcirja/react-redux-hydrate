@@ -32,6 +32,7 @@ const LoadingIndicator = () => (
 
 ```js
 import hydrate from 'react-redux-hydrate';
+import { connect } from 'react-redux';
 
 type Props = {
     someProp: string,
@@ -50,26 +51,36 @@ type Props = {
     },
 };
 
-const Component = () => (
+const Component = (props: Props) => (
     <div>
         // render the necessary things here
     </div>
 );
 
-export default hydrate({
-    WrappedComponent: Component,
-    LoadingIndicator,
-    Error,
-    hydrationActions: [
-        'requestData', // make sure all the necessary actions are passed as props to the component
-        {
-            action: 'actionsGroup.requestData', // action prop
-            params: 'someProp', // make sure all the necessary params are passed as props to the component
-        },
-        {
-            action: 'anotherActionsGroup.requestData', // action prop
-            params: ['anotherProp.value', 'someOtherProp'], // list of params
-        },
-    ]
+const mapStateToProps = (state: State) => ({
+    // pass whatever props you need here or not
 });
+
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+    // make sure you will map all the necessary actions here
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(
+    hydrate({
+        WrappedComponent: Component,
+        LoadingIndicator,
+        Error,
+        hydrationActions: [
+            'requestData', // make sure all the necessary actions are passed as props to the component
+            {
+                action: 'actionsGroup.requestData', // action prop
+                params: 'someProp', // make sure all the necessary params are passed as props to the component
+            },
+            {
+                action: 'anotherActionsGroup.requestData', // action prop
+                params: ['anotherProp.value', 'someOtherProp'], // list of params
+            },
+        ]
+    })
+);
 ```
