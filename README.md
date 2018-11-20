@@ -58,7 +58,8 @@ const Component = (props: Props) => (
 );
 
 const mapStateToProps = (state: State) => ({
-    // pass whatever props you need here or not
+    loading: state..., // make sure you will set the loading prop value to true when a request starts and set it to false when it is resolved
+    error: state..., // make sure you will set an error prop in the state when a request fails
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
