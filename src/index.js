@@ -30,7 +30,7 @@ const extractAction = (name: string, actions: Actions) => {
 const extractParam = (name: string, props: ComponentProps) => {
   const paramNameSplit = name.split('.');
   const paramValue = paramNameSplit.reduce(
-    (acc: CProps, curr: string) => acc[curr],
+    (acc: ComponentProps, curr: string) => acc[curr],
     props,
   );
   const paramName = paramNameSplit[paramNameSplit.length - 1];
@@ -42,7 +42,7 @@ const extractParam = (name: string, props: ComponentProps) => {
 const extractParams = (params: Params, props: ComponentProps) => {
   if (Array.isArray(params)) {
     return params.reduce(
-      (acc: CProps, curr: string) => (
+      (acc: ComponentProps, curr: string) => (
         {
           ...acc,
           ...extractParam(curr, props),
