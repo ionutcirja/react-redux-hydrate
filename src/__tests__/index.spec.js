@@ -5,7 +5,7 @@ import hydrate from '..';
 
 describe('hydrate hoc', () => {
   const Component = () => <span>content</span>;
-  const Spinner = () => <span>spinner</span>;
+  const LoadingIndicator = () => <span>spinner</span>;
   type ErrorProps = {
     error: string,
   };
@@ -37,7 +37,7 @@ describe('hydrate hoc', () => {
     it('should render a spinner on first time render', () => {
       const HOCComponent = hydrate({
         WrappedComponent: Component,
-        Spinner,
+        LoadingIndicator,
         Error,
         hydrationActions: ['someAction', 'group.groupAction'],
       });
@@ -49,7 +49,7 @@ describe('hydrate hoc', () => {
       propsToRender.loading = true;
       const HOCComponent = hydrate({
         WrappedComponent: Component,
-        Spinner,
+        LoadingIndicator,
         Error,
         hydrationActions: ['someAction', 'group.groupAction'],
       });
@@ -62,7 +62,7 @@ describe('hydrate hoc', () => {
       propsToRender.error = 'some error';
       const HOCComponent = hydrate({
         WrappedComponent: Component,
-        Spinner,
+        LoadingIndicator,
         Error,
         hydrationActions: ['someAction', 'group.groupAction'],
       });
@@ -76,7 +76,7 @@ describe('hydrate hoc', () => {
       propsToRender.error = '';
       const HOCComponent = hydrate({
         WrappedComponent: Component,
-        Spinner,
+        LoadingIndicator,
         Error,
         hydrationActions: ['someAction', 'group.groupAction'],
       });
@@ -90,7 +90,7 @@ describe('hydrate hoc', () => {
     it('should call the actions methods with the proper props params', () => {
       const HOCComponent = hydrate({
         WrappedComponent: Component,
-        Spinner,
+        LoadingIndicator,
         Error,
         hydrationActions: [
           'someAction',
@@ -118,7 +118,7 @@ describe('hydrate hoc', () => {
     it('should render an error if action is not defined', () => {
       const HOCComponent = hydrate({
         WrappedComponent: Component,
-        Spinner,
+        LoadingIndicator,
         Error,
         hydrationActions: [
           'undefinedAction',
