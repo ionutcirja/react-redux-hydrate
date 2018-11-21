@@ -17,7 +17,7 @@ type Props = {
     error: string,
 };
 
-const Error = ({ error }: Props) => (
+const ErrorWrapper = ({ error }: Props) => (
     <p>{error}</p>
 );
 ```
@@ -70,7 +70,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(
     hydrate({
         WrappedComponent: Component,
         LoadingIndicator,
-        Error,
+        ErrorWrapper,
         hydrationActions: [
             'requestData', // make sure all the necessary actions are passed as props to the component
             {

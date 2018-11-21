@@ -15,7 +15,7 @@ type ComponentProps = {
 type HydrationParams = {
   WrappedComponent: ComponentType<any>,
   LoadingIndicator: ComponentType<any>,
-  Error: ComponentType<any>,
+  ErrorWrapper: ComponentType<any>,
   hydrationActions: Actions,
 };
 
@@ -57,7 +57,7 @@ const extractParams = (params: Params, props: ComponentProps) => {
 export default function hydrate({
   WrappedComponent,
   LoadingIndicator,
-  Error,
+  ErrorWrapper,
   hydrationActions,
 }: HydrationParams) {
   type Props = {
@@ -116,7 +116,7 @@ export default function hydrate({
       return loading || !this.hydrationStarted
         ? <LoadingIndicator />
         : (error
-          ? <Error error={error} />
+          ? <ErrorWrapper error={error} />
           : <WrappedComponent {...rest} />);
     }
   };

@@ -9,7 +9,7 @@ describe('hydrate hoc', () => {
   type ErrorProps = {
     error: string,
   };
-  const Error = ({ error }: ErrorProps) => <span>{error}</span>;
+  const ErrorWrapper = ({ error }: ErrorProps) => <span>{error}</span>;
   
   let propsToRender;
   
@@ -38,7 +38,7 @@ describe('hydrate hoc', () => {
       const HOCComponent = hydrate({
         WrappedComponent: Component,
         LoadingIndicator,
-        Error,
+        ErrorWrapper,
         hydrationActions: ['someAction', 'group.groupAction'],
       });
       const wrapper = shallow(<HOCComponent {...propsToRender} />).dive();
@@ -50,7 +50,7 @@ describe('hydrate hoc', () => {
       const HOCComponent = hydrate({
         WrappedComponent: Component,
         LoadingIndicator,
-        Error,
+        ErrorWrapper,
         hydrationActions: ['someAction', 'group.groupAction'],
       });
       const wrapper = shallow(<HOCComponent {...propsToRender} />).dive();
@@ -63,7 +63,7 @@ describe('hydrate hoc', () => {
       const HOCComponent = hydrate({
         WrappedComponent: Component,
         LoadingIndicator,
-        Error,
+        ErrorWrapper,
         hydrationActions: ['someAction', 'group.groupAction'],
       });
       const wrapper = shallow(<HOCComponent {...propsToRender} />);
@@ -77,7 +77,7 @@ describe('hydrate hoc', () => {
       const HOCComponent = hydrate({
         WrappedComponent: Component,
         LoadingIndicator,
-        Error,
+        ErrorWrapper,
         hydrationActions: ['someAction', 'group.groupAction'],
       });
       const wrapper = shallow(<HOCComponent {...propsToRender} />);
@@ -91,7 +91,7 @@ describe('hydrate hoc', () => {
       const HOCComponent = hydrate({
         WrappedComponent: Component,
         LoadingIndicator,
-        Error,
+        ErrorWrapper,
         hydrationActions: [
           'someAction',
           {
@@ -119,7 +119,7 @@ describe('hydrate hoc', () => {
       const HOCComponent = hydrate({
         WrappedComponent: Component,
         LoadingIndicator,
-        Error,
+        ErrorWrapper,
         hydrationActions: [
           'undefinedAction',
         ],
