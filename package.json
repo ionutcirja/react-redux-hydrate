@@ -1,6 +1,6 @@
 {
   "name": "react-redux-hydrate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Ionut Cirja",
   "url": "https://github.com/ionutcirja/react-redux-hydrate",
   "license": "MIT",
@@ -8,8 +8,9 @@
     "type": "git",
     "url": "https://github.com/ionutcirja/react-redux-hydrate"
   },
+  "main": "lib/index.js",
   "scripts": {
-    "build": "babel -d lib/ src/ --ignore *.spec.js",
+    "build": "babel -d lib/ src/ --ignore **/*.spec.js",
     "prepublish": "npm run lint && npm run flow && npm test && npm run build",
     "lint": "eslint src/**",
     "test": "jest",
